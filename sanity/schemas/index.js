@@ -11,6 +11,7 @@ import portfolioGrid from "./sections/portfolioGrid";
 import serviceList from "./sections/serviceList";
 import newsList from "./sections/newsList";
 import contactForm from "./sections/contactForm";
+import servicesShowcase from "./sections/servicesShowcase";
 
 // Objects
 import seo from "./objects/seo";
@@ -31,6 +32,7 @@ export const schemas = [
   serviceList,
   newsList,
   contactForm,
+  servicesShowcase,
 
   // Objects
   seo,

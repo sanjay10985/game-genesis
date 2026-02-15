@@ -21,15 +21,11 @@ export const pageQuery = `
       _type == "hero" => {
         heading,
         subheading,
+        ctaText,
+        ctaLink,
+        characterImage,
         backgroundImage,
-        ctaButtons[] {
-          text,
-          url,
-          page->{slug},
-          openInNewTab
-        },
-        alignment,
-        height
+        scrollingTexts
       },
       
       // Text Block fields
@@ -109,6 +105,21 @@ export const pageQuery = `
           }
         },
         layout
+      },
+      
+      // Services Showcase fields
+      _type == "servicesShowcase" => {
+        sectionTitle,
+        services[] {
+          _key,
+          number,
+          label,
+          title,
+          description,
+          buttonText,
+          buttonLink,
+          image
+        }
       },
       
       // News List fields

@@ -1,20 +1,56 @@
 @import "tailwindcss";
 
 :root {
+  /* Original colors */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Custom Game Genesis Color Palette */
+  --primary-pink: #ff8fa3;
+  --primary-cyan: #9cdbdb;
+  --main-bg: #1a1a1d;
+  --section-bg: #25252a;
+  --card-panel-1: #2e2e35;
+  --card-panel-2: #38383f;
+  --card-panel-3: #42424a;
+  --subtle-border: #1c2a33;
+  --hover-border: #a3c4c4;
+  --primary-cta: #ff8fa3;
+  --cta-hover: #ff6b85;
+  --secondary-cta: #9cdbdb;
+  --hover-glow: #b8a8a8;
+  --active-state: #ffffff;
 }
 
 @theme inline {
+  /* Base colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Custom colors */
+  --color-primary-pink: var(--primary-pink);
+  --color-primary-cyan: var(--primary-cyan);
+  --color-main-bg: var(--main-bg);
+  --color-section-bg: var(--section-bg);
+  --color-card-1: var(--card-panel-1);
+  --color-card-2: var(--card-panel-2);
+  --color-card-3: var(--card-panel-3);
+  --color-subtle-border: var(--subtle-border);
+  --color-hover-border: var(--hover-border);
+  --color-primary-cta: var(--primary-cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-secondary-cta: var(--secondary-cta);
+  --color-hover-glow: var(--hover-glow);
+  --color-active-state: var(--active-state);
+
+  /* Fonts */
+  --font-sans: var(--font-nova-flat);
+  --font-heading: var(--font-nova-flat);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1a1a1d;
     --foreground: #ededed;
   }
 }
@@ -22,5 +58,57 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-nova-flat),
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* Scrolling Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero Text Glow Effect */
+.hero-glow-text {
+  text-shadow:
+    0 0 20px rgba(255, 143, 163, 0.5),
+    0 0 40px rgba(255, 143, 163, 0.3);
+  -webkit-text-stroke: 2px rgba(255, 143, 163, 0.3);
+}
+
+.outlined-gradient-text {
+  font-family: "Nova Flat", cursive;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: white;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke-image: linear-gradient(180deg, #000000 0%, #666666 100%);
+  paint-order: stroke fill;
+}
+
+/* Clip Path Button */
+.clip-path-button {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  );
 }

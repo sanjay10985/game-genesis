@@ -34,6 +34,7 @@ export default {
       description: "Add and arrange sections to build your page",
       of: [
         { type: "hero" },
+        { type: "servicesShowcase" },
         { type: "textBlock" },
         { type: "imageBlock" },
         { type: "featureGrid" },

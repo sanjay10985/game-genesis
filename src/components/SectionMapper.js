@@ -1,4 +1,4 @@
-import Hero from "./sections/Hero";
+// import Hero from "./sections/Hero";
 import TextBlock from "./sections/TextBlock";
 import ImageBlock from "./sections/ImageBlock";
 import FeatureGrid from "./sections/FeatureGrid";
@@ -6,6 +6,8 @@ import PortfolioGrid from "./sections/PortfolioGrid";
 import ServiceList from "./sections/ServiceList";
 import NewsList from "./sections/NewsList";
 import ContactForm from "./sections/ContactForm";
+import ServicesShowcase from "./sections/ServicesShowcase";
+import Hero from "./Hero";
 
 // Map section types to their corresponding components
 const sectionComponents = {
@@ -15,6 +17,7 @@ const sectionComponents = {
   featureGrid: FeatureGrid,
   portfolioGrid: PortfolioGrid,
   serviceList: ServiceList,
+  servicesShowcase: ServicesShowcase,
   newsList: NewsList,
   contactForm: ContactForm,
 };

@@ -5,70 +5,77 @@ export default {
   fields: [
     {
       name: "heading",
-      title: "Heading",
+      title: "Main Heading",
       type: "string",
       validation: (Rule) => Rule.required(),
+      description: 'Large heading text (e.g., "Build Iconic Games")',
     },
     {
       name: "subheading",
       title: "Subheading",
-      type: "text",
-      rows: 3,
+      type: "string",
+      description: 'Secondary heading text (e.g., "Igniting Your Game Vision")',
     },
     {
-      name: "backgroundImage",
-      title: "Background Image",
+      name: "ctaText",
+      title: "CTA Button Text",
+      type: "string",
+      initialValue: "Let's Build Your Game",
+      description: "Text for the call-to-action button",
+    },
+    {
+      name: "ctaLink",
+      title: "CTA Button Link",
+      type: "string",
+      initialValue: "#contact",
+      description: "URL or anchor link for the CTA button",
+    },
+    {
+      name: "characterImage",
+      title: "Character Image",
       type: "image",
       options: {
         hotspot: true,
       },
+      description: "Main character/hero image (displayed on right side)",
     },
     {
-      name: "ctaButtons",
-      title: "CTA Buttons",
+      name: "backgroundImage",
+      title: "Background Image (Optional)",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      description: "Optional background image",
+    },
+    {
+      name: "scrollingTexts",
+      title: "Scrolling Text Items",
       type: "array",
-      of: [{ type: "link" }],
-      validation: (Rule) => Rule.max(2),
-      description: "Call-to-action buttons (max 2)",
-    },
-    {
-      name: "alignment",
-      title: "Text Alignment",
-      type: "string",
-      options: {
-        list: [
-          { title: "Left", value: "left" },
-          { title: "Center", value: "center" },
-          { title: "Right", value: "right" },
-        ],
-        layout: "radio",
-      },
-      initialValue: "center",
-    },
-    {
-      name: "height",
-      title: "Section Height",
-      type: "string",
-      options: {
-        list: [
-          { title: "Small", value: "small" },
-          { title: "Medium", value: "medium" },
-          { title: "Large", value: "large" },
-          { title: "Full Screen", value: "fullscreen" },
-        ],
-      },
-      initialValue: "large",
+      of: [{ type: "string" }],
+      initialValue: [
+        "Graphic Art",
+        "Game Visuals",
+        "Game Art Services",
+        "Art for Games",
+        "Game Art",
+        "Visual Game Design",
+        "Creative Game Art",
+        "Concept Art",
+      ],
+      description: "Text items that scroll at the bottom of the hero section",
     },
   ],
   preview: {
     select: {
       title: "heading",
-      media: "backgroundImage",
+      subtitle: "subheading",
+      media: "characterImage",
     },
-    prepare({ title, media }) {
+    prepare({ title, subtitle, media }) {
       return {
         title: "Hero",
-        subtitle: title,
+        subtitle: title || "No heading set",
         media,
       };
     },
