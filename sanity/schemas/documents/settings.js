@@ -34,18 +34,100 @@ export default {
       description: "Main navigation menu items",
     },
     {
-      name: "footerMenu",
-      title: "Footer Menu",
-      type: "array",
-      of: [{ type: "menuItem" }],
-      description: "Footer navigation menu items",
+      name: "footerTagline",
+      title: "Footer Tagline",
+      type: "text",
+      rows: 2,
+      description:
+        "Tagline displayed in footer (e.g., 'Building games that play smooth...')",
     },
     {
-      name: "footerText",
-      title: "Footer Text",
-      type: "text",
-      rows: 3,
-      description: "Copyright or additional footer text",
+      name: "footerQuickLinks",
+      title: "Footer Quick Links",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "title",
+              title: "Link Title",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "url",
+              title: "URL",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+        },
+      ],
+      description: "Quick links section in footer",
+    },
+    {
+      name: "footerServices",
+      title: "Footer Services",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "title",
+              title: "Service Title",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "url",
+              title: "URL",
+              type: "string",
+            },
+          ],
+        },
+      ],
+      description: "Services list in footer",
+    },
+    {
+      name: "footerContactInfo",
+      title: "Footer Contact Info",
+      type: "object",
+      fields: [
+        {
+          name: "address",
+          title: "Address",
+          type: "text",
+          rows: 3,
+        },
+        {
+          name: "email",
+          title: "Email",
+          type: "string",
+        },
+      ],
+      description: "Contact information displayed in footer",
+    },
+    {
+      name: "footerCtaText",
+      title: "Footer CTA Button Text",
+      type: "string",
+      initialValue: "Hire Now",
+      description: "Call-to-action button text in footer",
+    },
+    {
+      name: "footerCtaLink",
+      title: "Footer CTA Button Link",
+      type: "string",
+      description: "Call-to-action button URL",
+    },
+    {
+      name: "copyrightText",
+      title: "Copyright Text",
+      type: "string",
+      initialValue: "© 2026 GameGenesis. All rights reserved.",
+      description: "Copyright text at bottom of footer",
     },
     {
       name: "socialLinks",
@@ -53,13 +135,13 @@ export default {
       type: "object",
       fields: [
         {
-          name: "twitter",
-          title: "Twitter/X",
+          name: "facebook",
+          title: "Facebook",
           type: "url",
         },
         {
-          name: "facebook",
-          title: "Facebook",
+          name: "twitter",
+          title: "Twitter/X",
           type: "url",
         },
         {
@@ -73,34 +155,12 @@ export default {
           type: "url",
         },
         {
-          name: "github",
-          title: "GitHub",
+          name: "youtube",
+          title: "YouTube",
           type: "url",
         },
       ],
-    },
-    {
-      name: "contactInfo",
-      title: "Contact Information",
-      type: "object",
-      fields: [
-        {
-          name: "email",
-          title: "Email",
-          type: "string",
-        },
-        {
-          name: "phone",
-          title: "Phone",
-          type: "string",
-        },
-        {
-          name: "address",
-          title: "Address",
-          type: "text",
-          rows: 3,
-        },
-      ],
+      description: "Social media links",
     },
   ],
   preview: {

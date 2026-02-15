@@ -95,8 +95,8 @@ export default function Hero({ data }) {
       </div> */}
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen pt-24 pb-16">
-          <div className="space-y-8 lg:space-y-10 col-span-2">
+        <div className="relative grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen pt-24 pb-16">
+          <div className="space-y-8 lg:space-y-10 col-span-2 z-99">
             {/* Main Heading */}
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-wider leading-tight">
@@ -121,90 +121,84 @@ export default function Hero({ data }) {
             </div>
           </div>
 
-          {/* <div className="relative h-[500px] lg:h-[700px]">
-            <div className="absolute right-0 bottom-0 w-full h-full">
+          <div className="absolute right-0 bottom-0 h-[500px] lg:h-[700px]">
+            <div className="  w-full h-full">
               <Image
                 src={characterImageUrl}
+                priority
                 alt="Game Characters"
                 fill
                 className="object-contain object-bottom"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
+                // sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
 
-            <div className="absolute right-1/4 top-1/4 w-64 h-64 bg-primary-cyan/20 rounded-full blur-3xl"></div>
-            <div className="absolute right-1/3 top-1/3 w-48 h-48 bg-primary-pink/20 rounded-full blur-3xl"></div>
-          </div> */}
+            {/* <div className="absolute right-1/4 top-1/4 w-64 h-64 bg-primary-cyan/20 rounded-full blur-3xl"></div>
+            <div className="absolute right-1/3 top-1/3 w-48 h-48 bg-primary-pink/20 rounded-full blur-3xl"></div> */}
+          </div>
         </div>
 
         {/* Scrolling Text Banner */}
-        <div className="absolute bottom-10 left-0 right-0 border-t border-b border-primary-cyan/30 border-dashed  py-6 rotate-6">
-          <div className="flex animate-scroll whitespace-nowrap">
-            {/* First Set */}
-            <div className="flex items-center gap-8 px-8">
-              {scrollingTexts.map((text, index) => (
-                <div key={`first-${index}`} className="flex items-center gap-8">
-                  <span className="text-white/60 tracking-wider text-lg">
-                    {text}
-                  </span>
-                  <div className="w-8 h-8 border border-primary-cyan/50  rotate-45 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-primary-cyan"></div>
-                  </div>
+      </div>
+      <div className="absolute bottom-10 left-0 right-0 border-t border-b border-primary-cyan/30 border-dashed  py-6 rotate-6">
+        <div className="flex animate-scroll whitespace-nowrap">
+          {/* First Set */}
+          <div className="flex items-center gap-8 px-8">
+            {scrollingTexts.map((text, index) => (
+              <div key={`first-${index}`} className="flex items-center gap-8">
+                <span className="text-white/60 tracking-wider text-lg">
+                  {text}
+                </span>
+                <div className="w-8 h-8 border border-primary-cyan/50  rotate-45 flex items-center justify-center">
+                  <div className="w-2 h-2 bg-primary-cyan"></div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Duplicate for seamless loop */}
-            <div className="flex items-center gap-8 px-8">
-              {scrollingTexts.map((text, index) => (
-                <div
-                  key={`second-${index}`}
-                  className="flex items-center gap-8"
-                >
-                  <span className="text-white/60 tracking-wider text-lg">
-                    {text}
-                  </span>
-                  <div className="w-8 h-8 border border-primary-cyan/50 rotate-45 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-primary-cyan"></div>
-                  </div>
+          {/* Duplicate for seamless loop */}
+          <div className="flex items-center gap-8 px-8">
+            {scrollingTexts.map((text, index) => (
+              <div key={`second-${index}`} className="flex items-center gap-8">
+                <span className="text-white/60 tracking-wider text-lg">
+                  {text}
+                </span>
+                <div className="w-8 h-8 border border-primary-cyan/50 rotate-45 flex items-center justify-center">
+                  <div className="w-2 h-2 bg-primary-cyan"></div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="absolute bottom-10 left-0 right-0 border-t border-b border-primary-cyan/30 border-dashed  py-6 -rotate-6">
-          <div className="flex animate-scroll whitespace-nowrap">
-            {/* First Set */}
-            <div className="flex items-center gap-8 px-8">
-              {scrollingTexts.map((text, index) => (
-                <div key={`first-${index}`} className="flex items-center gap-8">
-                  <span className="text-white/60 tracking-wider text-lg">
-                    {text}
-                  </span>
-                  <div className="w-8 h-8 border border-primary-cyan/50 rotate-45 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-primary-cyan"></div>
-                  </div>
+      </div>
+      <div className="absolute bottom-10 left-0 right-0 border-t border-b border-primary-cyan/30 border-dashed  py-6 -rotate-6 bg-black">
+        <div className="flex animate-scroll whitespace-nowrap">
+          {/* First Set */}
+          <div className="flex items-center gap-8 px-8">
+            {scrollingTexts.map((text, index) => (
+              <div key={`first-${index}`} className="flex items-center gap-8">
+                <span className="text-white/60 tracking-wider text-lg">
+                  {text}
+                </span>
+                <div className="w-8 h-8 border border-primary-cyan/50 rotate-45 flex items-center justify-center">
+                  <div className="w-2 h-2 bg-primary-cyan"></div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Duplicate for seamless loop */}
-            <div className="flex items-center gap-8 px-8 bg-black">
-              {scrollingTexts.map((text, index) => (
-                <div
-                  key={`second-${index}`}
-                  className="flex items-center gap-8"
-                >
-                  <span className="text-white/60 tracking-wider text-lg">
-                    {text}
-                  </span>
-                  <div className="w-8 h-8 border border-primary-cyan/50 rotate-45 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-primary-cyan"></div>
-                  </div>
+          {/* Duplicate for seamless loop */}
+          <div className="flex items-center gap-8 px-8 bg-black">
+            {scrollingTexts.map((text, index) => (
+              <div key={`second-${index}`} className="flex items-center gap-8">
+                <span className="text-white/60 tracking-wider text-lg">
+                  {text}
+                </span>
+                <div className="w-8 h-8 border border-primary-cyan/50 rotate-45 flex items-center justify-center">
+                  <div className="w-2 h-2 bg-primary-cyan"></div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

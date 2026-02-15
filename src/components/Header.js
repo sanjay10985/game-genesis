@@ -13,7 +13,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12">
+            <div className="relative w-40 h-12">
               <Image
                 src="/logo.png"
                 alt="GameGenesis Logo"
@@ -22,9 +22,6 @@ export default function Header() {
                 priority
               />
             </div>
-            <span className="text-xl lg:text-2xl text-white tracking-wider font-normal">
-              GameGenesis
-            </span>
           </Link>
 
           {/* Desktop Navigation */}

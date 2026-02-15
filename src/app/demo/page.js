@@ -1,4 +1,5 @@
-import Header from "@/components/Header";
+import { getSettings } from "@/lib/sanity.queries";
+import LayoutWrapper from "@/components/LayoutWrapper";
 import Hero from "@/components/Hero";
 
 export const metadata = {
@@ -6,11 +7,12 @@ export const metadata = {
   description: "Hero section demo",
 };
 
-export default function DemoPage() {
+export default async function DemoPage() {
+  const settings = await getSettings();
+
   return (
-    <>
-      <Header />
+    <LayoutWrapper settings={settings}>
       <Hero />
-    </>
+    </LayoutWrapper>
   );
 }

@@ -192,14 +192,29 @@ export async function getSettings() {
           page->{slug}
         }
       },
-      footerMenu[] {
+      footerTagline,
+      footerQuickLinks[] {
         title,
-        url,
-        page->{slug}
+        url
       },
-      footerText,
-      socialLinks,
-      contactInfo
+      footerServices[] {
+        title,
+        url
+      },
+      footerContactInfo {
+        address,
+        email
+      },
+      footerCtaText,
+      footerCtaLink,
+      copyrightText,
+      socialLinks {
+        facebook,
+        twitter,
+        instagram,
+        linkedin,
+        youtube
+      }
     }
   `;
   return await client.fetch(query);
@@ -210,6 +225,6 @@ export async function getPageBySlugPreview(slug) {
   return await client.fetch(
     pageQuery,
     { slug },
-    { perspective: "previewDrafts" }
+    { perspective: "previewDrafts" },
   );
 }

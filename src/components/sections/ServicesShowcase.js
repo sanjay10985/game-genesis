@@ -55,13 +55,16 @@ function ServiceItem({ service, index, isEven }) {
   return (
     <div className="relative py-16 lg:py-24">
       {/* Decorative curved line - placeholder for SVG */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className={`absolute ${isEven ? "top-0 right-0" : "top-0 left-0"} w-1/2 h-full opacity-20`}
-        >
-          {/* SVG will go here */}
+      {index === 0 && (
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            // className={`absolute ${isEven ? "top-0 right-0" : "top-0 left-0"} w-1/2 h-full opacity-20`}
+            className="absolute top-0 left-0 w-full h-full"
+          >
+            <Image src={"./service-vector1.svg"} alt="svg" fill="true" />
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="container mx-auto px-4 lg:px-8">
         <div
@@ -80,8 +83,8 @@ function ServiceItem({ service, index, isEven }) {
             </div>
 
             {/* Service Number */}
-            <div className="relative">
-              <span className="text-8xl lg:text-9xl font-bold text-white/5  outlined-gradient-text">
+            <div className="relative -mt-6">
+              <span className="text-8xl lg:text-9xl font-bold text-white/5  outlined-gradient-text ">
                 {`0${index + 1}`}
               </span>
               <h3 className="text-4xl lg:text-5xl xl:text-6xl text-primary-pink tracking-wider relative z-10 uppercase">
@@ -114,12 +117,13 @@ function ServiceItem({ service, index, isEven }) {
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-pink/20 to-primary-cyan/20 rounded-full blur-3xl scale-110"></div>
 
                   {/* Image */}
-                  <div className="relative z-10">
+                  <div className="relative z-10 w-full h-full">
                     <Image
                       src={imageUrl}
                       alt={title || "Service"}
                       width={800}
                       height={800}
+                      // fill="true"
                       className="object-contain drop-shadow-2xl"
                     />
                   </div>
