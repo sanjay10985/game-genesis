@@ -1,14 +1,22 @@
 import { notFound } from "next/navigation";
-import { getPageBySlug, getAllPageSlugs } from "@/lib/sanity.queries";
+import {
+  getPageBySlug,
+  getAllPageSlugs,
+  getSettings,
+} from "@/lib/sanity.queries";
 import SectionMapper from "@/components/SectionMapper";
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 // Generate static params for all pages
 export async function generateStaticParams() {
   const slugs = await getAllPageSlugs();
 
-  return slugs.map((slug) => ({
-    slug: slug,
-  }));
+  // Filter out 'home' since it's handled by the root page
+  return slugs
+    .filter((slug) => slug !== "home")
+    .map((slug) => ({
+      slug: slug,
+    }));
 }
 
 // Generate metadata for SEO
@@ -35,16 +43,19 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const page = await getPageBySlug(params.slug);
+  const [page, settings] = await Promise.all([
+    getPageBySlug(params.slug),
+    getSettings(),
+  ]);
 
   if (!page) {
     notFound();
   }
 
   return (
-    <main>
+    <LayoutWrapper settings={settings}>
       <SectionMapper sections={page.sections} />
-    </main>
+    </LayoutWrapper>
   );
 }
 
