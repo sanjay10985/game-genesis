@@ -112,3 +112,227 @@ html {
     0 calc(100% - 20px)
   );
 }
+
+/* ============================================
+   LOADING SCREEN STYLES
+   ============================================ */
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 0.6s ease-out 2s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.loading-content {
+  text-align: center;
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo Container */
+.loading-logo {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Glow Effect Behind Logo */
+.logo-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 143, 163, 0.3) 0%,
+    rgba(156, 219, 219, 0.2) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: glowPulse 2s ease-in-out infinite;
+  filter: blur(20px);
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.logo-image {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 20px rgba(255, 143, 163, 0.5));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Loading Title */
+.loading-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  animation: fadeInText 0.8s ease-out 0.3s both;
+  text-shadow: 0 0 30px rgba(255, 143, 163, 0.5);
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading Bar Container */
+.loading-bar-container {
+  width: 300px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+  position: relative;
+  animation: fadeInText 0.8s ease-out 0.5s both;
+}
+
+.loading-bar-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(156, 219, 219, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Loading Bar Fill */
+.loading-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff8fa3 0%, #9cdbdb 50%, #ff8fa3 100%);
+  background-size: 200% 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease-out;
+  animation: gradientShift 2s ease-in-out infinite;
+  box-shadow:
+    0 0 20px rgba(255, 143, 163, 0.6),
+    0 0 40px rgba(156, 219, 219, 0.4);
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Loading Text */
+.loading-text {
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  animation:
+    fadeInText 0.8s ease-out 0.7s both,
+    blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .loading-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .loading-title {
+    font-size: 2rem;
+  }
+
+  .loading-bar-container {
+    width: 250px;
+  }
+}
